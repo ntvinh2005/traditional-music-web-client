@@ -1,94 +1,105 @@
-import {createContext, useReducer, useEffect} from 'react'
-import { authReducer } from '../reducers/AuthReducer'
-import axios from 'axios'
-import setAuthToken from '../utils/setAuthToken';
-import { apiUrl, LOCAL_STORAGE_TOKEN_NAME } from './constants';
+import { createContext, useReducer, useEffect } from "react";
+import { authReducer } from "../reducers/AuthReducer";
+import axios from "axios";
+import setAuthToken from "../utils/setAuthToken";
+import { apiUrl, LOCAL_STORAGE_TOKEN_NAME } from "./constants";
 
 export const AuthContext = createContext();
 
-const AuthContextProvider = ({children})=>{
-    const [authState, dispatch] = useReducer(authReducer, {
-        authLoading: true,
-        isAuthenticated: false,
-        user: null
-    })
-    console.log('Here is AuthContextProvider')
-    //Authenticate user
-    async function loadUser() {
-        if (localStorage[LOCAL_STORAGE_TOKEN_NAME]) {
-            setAuthToken(localStorage[LOCAL_STORAGE_TOKEN_NAME])
-        }
-        try {
-            const response = await axios.get(apiUrl+'/auth')
-            console.log(response.data)
-            if (response.data.success) {
-                dispatch({
-                    type: 'SET_AUTH',
-                    payload: { isAuthenticated: true, user: response.data.user}
-                })
-            }
-        } catch (error) {
-            console.log('1')
-            localStorage.removeItem(LOCAL_STORAGE_TOKEN_NAME)
-            setAuthToken(null)
-            dispatch({
-                type: 'SET_AUTH',
-                payload: { isAuthenticated: false, user: null}
-            })
-        }
+const AuthContextProvider = ({ children }) => {
+  const [authState, dispatch] = useReducer(authReducer, {
+    authLoading: true,
+    isAuthenticated: false,
+    user: null,
+  });
+  console.log("Here is AuthContextProvider");
+  //Authenticate user
+  const loadUser = async () => {
+    console.log(123123);
+    if (localStorage[LOCAL_STORAGE_TOKEN_NAME]) {
+      setAuthToken(localStorage[LOCAL_STORAGE_TOKEN_NAME]);
     }
-    
-
-    useEffect(() => {
-        loadUser()
-    }, [])
-    console.log('After useEffect')
-    //login
-    const loginUser = async userform => {
-        try {
-            const response = await axios.post(apiUrl+'/auth/login', userform)
-            if (response.data.success)
-            localStorage.setItem(LOCAL_STORAGE_TOKEN_NAME, response.data.accessToken)
-            console.log(response.data.accessToken)
-            await loadUser()
-            return response.data
-        } catch (error) {
-            if (error.response.data) return error.response.data
-            else return {success: false, message: error.message}
-        }
+    console.log("232123c");
+    try {
+      const response = await axios.get(apiUrl + "/auth");
+      if (response.data.success) {
+        dispatch({
+          type: "SET_AUTH",
+          payload: { isAuthenticated: true, user: response.data.user },
+        });
+      }
+    } catch (error) {
+      console.log("1");
+      localStorage.removeItem(LOCAL_STORAGE_TOKEN_NAME);
+      setAuthToken(null);
+      dispatch({
+        type: "SET_AUTH",
+        payload: { isAuthenticated: false, user: null },
+      });
     }
+  };
 
-    const registerUser = async userform => {
-        try {
-            const response = await axios.post(apiUrl+'/auth/register', userform)
-            if (response.data.success)
-            localStorage.setItem(LOCAL_STORAGE_TOKEN_NAME, response.data.accessToken)
-            await loadUser()
-            return response.data
-        } catch (error) {
-            if (error.response.data) return error.response.data
-            else return {success: false, message: error.message}
-        }
+  useEffect(() => {loadUser()}, []);
+
+  console.log("After useEffect");
+  //login
+  const loginUser = async (userform) => {
+    try {
+      const response = await axios.post(apiUrl + "/auth/login", userform);
+      if (response.data.success)
+        localStorage.setItem(
+          LOCAL_STORAGE_TOKEN_NAME,
+          response.data.accessToken
+        );
+      console.log(response.data.accessToken);
+      await loadUser();
+      return response.data;
+    } catch (error) {
+      if (error.response.data) return error.response.data;
+      else return { success: false, message: error.message };
     }
+  };
 
-    //log out
-    const logoutUser = () => {
-		localStorage.removeItem(LOCAL_STORAGE_TOKEN_NAME)
-		dispatch({
-			type: 'SET_AUTH',
-			payload: { isAuthenticated: false, user: null }
-		})
-	}
+  const registerUser = async (userform) => {
+    try {
+      const response = await axios.post(apiUrl + "/auth/register", userform);
+      if (response.data.success)
+        localStorage.setItem(
+          LOCAL_STORAGE_TOKEN_NAME,
+          response.data.accessToken
+        );
+      await loadUser();
+      return response.data;
+    } catch (error) {
+      if (error.response.data) return error.response.data;
+      else return { success: false, message: error.message };
+    }
+  };
 
-    //context data
-    const authContextData = {loadUser,loginUser, registerUser, logoutUser, authState}
+  //log out
+  const logoutUser = () => {
+    localStorage.removeItem(LOCAL_STORAGE_TOKEN_NAME);
+    dispatch({
+      type: "SET_AUTH",
+      payload: { isAuthenticated: false, user: null },
+    });
+  };
 
-    //return provider
-    return (
-        <AuthContext.Provider value={authContextData}>
-            {children}
-        </AuthContext.Provider>
-    )
-}
+  //context data
+  const authContextData = {
+    loadUser,
+    loginUser,
+    registerUser,
+    logoutUser,
+    authState,
+  };
 
-export default AuthContextProvider
+  //return provider
+  return (
+    <AuthContext.Provider value={authContextData}>
+      {children}
+    </AuthContext.Provider>
+  );
+};
+
+export default AuthContextProvider;
