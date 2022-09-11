@@ -10,6 +10,7 @@ const Course = () => {
   const { courseId } = useParams();
   const {
     authState: { authLoading, isAuthenticated },
+    loadUser,
   } = useContext(AuthContext);
   const {
     getCourse,
@@ -19,16 +20,18 @@ const Course = () => {
     getPosts,
     postState: { posts },
   } = useContext(PostContext);
+
   useEffect(() => {
-    getPosts(courseId);
-  }, []);
-  useEffect(() => {
-    getCourse(courseId);
+    loadUser().then(() => {
+      getCourse(courseId).then(() => getPosts(courseId));
+    });
   }, []);
 
   let body;
   if (authLoading) body = <h1>Loading</h1>;
-  else if (isAuthenticated)
+  else if (isAuthenticated) {
+    //
+    //
     body = (
       <>
         <div className="overflow-hidden bg-white shadow sm:rounded-lg">
@@ -80,7 +83,7 @@ const Course = () => {
         </div>
       </>
     );
-  else body = <Navigate to="/login"></Navigate>;
+  } else body = <Navigate to="/login"></Navigate>;
 
   return (
     <>
