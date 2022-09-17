@@ -3,7 +3,7 @@ import Navbar from "./Navbar";
 
 export default function Landing() {
   return (
-    <div className="relative overflow-hidden bg-white h-screen">
+    <div className="relative lg:overflow-hidden bg-white h-screen">
       <div className="mx-auto max-w-7xl">
         <div className="relative z-10 bg-white pb-8 sm:pb-16 md:pb-20 lg:w-full lg:max-w-2xl lg:pb-28 xl:pb-32">
           <svg
@@ -41,7 +41,7 @@ export default function Landing() {
                 </div>
                 <div className="mt-3 sm:mt-0 sm:ml-3">
                   <a
-                    href="#"
+                    href="/about"
                     className="flex w-full items-center justify-center rounded-md border border-transparent bg-yellow-100 px-8 py-3 text-base font-medium text-yellow-700 hover:bg-yellow-200 md:py-4 md:px-10 md:text-lg"
                   >
                     Tổng quan

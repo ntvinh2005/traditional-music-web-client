@@ -43,12 +43,12 @@ const Register = () => {
   return (
     <div className="bg-yellow-50 h-screen">
       <div >
-        <div className="flex min-h-full items-center justify-center py-12 px-4 sm:px-6 lg:px-8">
+        <div className="flex min-h-full items-center justify-center py-0 px-4 sm:px-6 lg:px-8">
           <div className="w-full max-w-md space-y-8">
             <div>
               <img
-                className="mx-auto h-12 w-auto"
-                src="https://tailwindui.com/img/logos/mark.svg?color=yellow&shade=600"
+                className="mx-auto w-4"
+                src={require('../../assets/resonance_logo-removebg-preview.png')}
                 alt="Your Company"
               />
               <h2 className="mt-6 text-center text-3xl font-bold tracking-tight text-gray-900">

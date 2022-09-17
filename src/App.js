@@ -1,4 +1,5 @@
 import Landing from "./components/layout/Landing";
+import About from "./components/layout/About"
 import Home from "./components/layout/Home";
 
 import Studio from "./components/layout/Studio";
@@ -26,6 +27,7 @@ function App() {
             <BrowserRouter>
               <Routes>
                 <Route exact path="/" element={<Landing></Landing>} />
+                <Route exact path="/about" element={<About/>}/>
                 <Route
                   exact
                   path="/home"

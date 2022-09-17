@@ -39,6 +39,9 @@
   blockquote {
     @apply ml-5
   }
+  hr {
+    @apply text-yellow-800 font-bold
+  }
 }
 
 @layer components {

@@ -26,13 +26,13 @@ const Navbar = () => {
   ];
 
   const openDropdown = () => {
-    if (dropdown == false) setDropdown(true);
+    if (dropdown === false) setDropdown(true);
     else setDropdown(false);
   };
 
   return (
     <Popover>
-      <div className="relative px-4 pt-6 sm:px-6 lg:px-8 text-md mt-0">
+      <div className="relative px-4 lg:pt-7 sm:pt-2 sm:px-6 lg:px-8 text-md lg:mt-3 md:mt-8 sm:mt-8">
         <nav
           className="relative flex items-center justify-between sm:h-10 lg:justify-start"
           aria-label="Global"
@@ -43,8 +43,8 @@ const Navbar = () => {
                 <span className="sr-only">Your Company</span>
                 <img
                   alt="Your Company"
-                  className="h-8 w-auto sm:h-10"
-                  src="https://tailwindui.com/img/logos/mark.svg?color=yellow&shade=600"
+                  className="w-2 sm:w-2 h-auto"
+                  src={require('../../assets/resonance_logo-removebg-preview.png')}
                 />
               </a>
               <div className="-mr-2 flex items-center md:hidden">
@@ -125,12 +125,12 @@ const Navbar = () => {
           focus
           className="absolute inset-x-0 top-0 z-10 origin-top-right transform p-2 transition md:hidden"
         >
-          <div className="overflow-hidden rounded-lg bg-white shadow-md ring-1 ring-black ring-opacity-5">
-            <div className="flex items-center justify-between px-5 pt-4">
+          <div className="rounded-lg bg-white shadow-md ring-1 ring-black ring-opacity-5">
+            <div className="flex items-center justify-between px-5 pt-2">
               <div>
                 <img
-                  className="h-8 w-auto"
-                  src="https://tailwindui.com/img/logos/mark.svg?color=yellow&shade=600"
+                  className="w-2 sm:w-2 h-auto"
+                  src={require('../../assets/resonance_logo-removebg-preview.png')}
                   alt=""
                 />
               </div>
