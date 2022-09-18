@@ -67,7 +67,7 @@ const Navbar = () => {
             ))}
             {user !== null ? (
               <>
-                <div class="relative inline-block text-left">
+                <div className="relative inline-block text-left">
                   <div>
                     <a
                       className="font-medium text-yellow-600 hover:text-yellow-500 hover:cursor-pointer inline-flex w-full justify-center"
@@ -81,7 +81,7 @@ const Navbar = () => {
                   </div>
                   {dropdown === true && (
                     <div
-                      class="absolute right-0 z-10 mt-2 w-56 rounded-md bg-white shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none align-middle justify-center"
+                      className="absolute right-0 z-10 mt-2 w-56 rounded-md bg-white shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none align-middle justify-center"
                       role="menu"
                       aria-orientation="vertical"
                       aria-labelledby="menu-button"
@@ -153,7 +153,7 @@ const Navbar = () => {
               ))}
               {user !== null ? (
                 <>
-                  <div class="relative inline-block text-left">
+                  <div className="relative inline-block text-left">
                     <div>
                       <a
                         className="font-medium text-yellow-600 hover:text-yellow-500 hover:cursor-pointer w-full justify-center block rounded-md px-3 py-2 text-base"

@@ -1,12 +1,20 @@
 import React, { useState, useContext, useEffect } from "react";
 import { PostContext } from "../../contexts/PostContext";
+import { AuthContext } from "../../contexts/AuthContext";
 import { CourseContext } from "../../contexts/CourseContext";
 import { useParams } from "react-router-dom";
 import Markdown from "markdown-to-jsx";
 import Navbar from "../layout/Navbar";
 
+import { storage } from "../../firebase";
+import ReactPlayer from "react-player";
+
 const CreatePost = () => {
   const { courseId } = useParams();
+
+  const {
+    authState: { user },
+  } = useContext(AuthContext);
 
   const {
     getCourse,
@@ -20,10 +28,27 @@ const CreatePost = () => {
 
   const [header, setHeader] = useState("");
   const [html, setHtml] = useState("");
+  const [videoUrl, setVideoUrl] = useState("");
+
+  const handleUpload = async (event) => {
+    const file = event.target.files[0];
+
+    let filePath = user._id + "/post/" + file.name;
+    const uploadTask = storage.ref(filePath).put(file);
+
+    uploadTask.then(() => {
+      uploadTask.snapshot.ref.getDownloadURL().then((url) => {
+        setVideoUrl(url);
+        console.log(videoUrl);
+      });
+    });
+  };
+
   const handleSubmit = async () => {
     const newPost = {
       title: header,
       content: html,
+      videoUrl: videoUrl,
     };
     await createPost(courseId, newPost);
     console.log(header, html);
@@ -31,7 +56,9 @@ const CreatePost = () => {
 
   return (
     <div>
-    <Navbar/>
+      <Navbar />
+      <br/>
+      <br/>
       <div class="md:grid md:grid-cols-3 md:gap-6 mb-3 mt-3 ">
         <div class="md:col-span-1">
           <div class="px-4 sm:px-0 ml-3">
@@ -41,8 +68,8 @@ const CreatePost = () => {
             <p class="mt-1 text-sm text-gray-600">
               Sáng tạo bài học cho khóa học của bạn ngay tại đây.
             </p>
-            <br/>
-            <br/>
+            <br />
+            <br />
             <h3 class="text-lg font-medium leading-6 text-gray-900">
               Xem trước nội dung bài học của bạn
             </h3>
@@ -50,7 +77,7 @@ const CreatePost = () => {
               Mã markdown sẽ được dịch và in ra tại đây.
             </p>
             <div>
-                <Markdown>{html}</Markdown>
+              <Markdown>{html}</Markdown>
             </div>
           </div>
         </div>
@@ -102,9 +129,87 @@ const CreatePost = () => {
                     ></textarea>
                   </div>
                   <p class="mt-2 text-sm text-gray-500">
-                    Tạo nội dung bài học của bạn ở đây. Có thể bao gồm cả liên kết đến hình ảnh và video từ Internet.
-                    {" "}
+                    Tạo nội dung bài học của bạn ở đây. Có thể bao gồm cả liên
+                    kết đến hình ảnh và video từ Internet.{" "}
                   </p>
+                </div>
+
+                <div>
+                  <label className="block text-sm font-medium text-gray-700">
+                    {videoUrl === "" ? (
+                      <>
+                        Video được tải lên sẽ được hiển thị tại đây. Giải trí
+                        bằng video bên dưới trong lúc đợi video hướng dẫn được
+                        tải lên.
+                      </>
+                    ) : (
+                      <>
+                        Video của bạn đã được tải lên. Hoàn thành biểu mẫu và
+                        nhấn Save
+                      </>
+                    )}
+                  </label>
+                  <div className="mt-1 flex items-center">
+                    <span className="inline-block overflow-hidden rounded-lg bg-gray-100">
+                      <div className="mx-auto md:p-6 sm:p-0 rounded-lg">
+                        {videoUrl === "" ? (
+                          <ReactPlayer
+                            url="https://www.youtube.com/watch?v=oUFJJNQGwhk"
+                            playing={true}
+                            controls={false}
+                            className="w-full h-auto rounded-lg"
+                          />
+                        ) : (
+                          <video controls className="w-full h-auto rounded-lg">
+                            <source src={videoUrl} />
+                          </video>
+                        )}
+                      </div>
+                    </span>
+                  </div>
+                </div>
+
+                <div>
+                  <label className="block text-sm font-medium text-gray-700">
+                    Video hướng dẫn
+                  </label>
+                  <div className="mt-1 flex justify-center rounded-md border-2 border-dashed border-gray-300 px-6 pt-5 pb-6">
+                    <div className="space-y-1 text-center">
+                      <svg
+                        className="mx-auto h-12 w-12 text-gray-400"
+                        stroke="currentColor"
+                        fill="none"
+                        viewBox="0 0 48 48"
+                        aria-hidden="true"
+                      >
+                        <path
+                          d="M28 8H12a4 4 0 00-4 4v20m32-12v8m0 0v8a4 4 0 01-4 4H12a4 4 0 01-4-4v-4m32-4l-3.172-3.172a4 4 0 00-5.656 0L28 28M8 32l9.172-9.172a4 4 0 015.656 0L28 28m0 0l4 4m4-24h8m-4-4v8m-12 4h.02"
+                          strokeWidth={2}
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                        />
+                      </svg>
+                      <div className="flex text-sm text-gray-600">
+                        <label
+                          htmlFor="file-upload"
+                          className="relative cursor-pointer rounded-md bg-white font-medium text-yellow-600 focus-within:outline-none focus-within:ring-2 focus-within:ring-yellow-500 focus-within:ring-offset-2 hover:text-yellow-500"
+                        >
+                          <span>Upload a file</span>
+                          <input
+                            id="file-upload"
+                            name="file-upload"
+                            type="file"
+                            className="sr-only"
+                            onChange={handleUpload}
+                          />
+                        </label>
+                        <p className="pl-1">or drag and drop</p>
+                      </div>
+                      <p className="text-xs text-gray-500">
+                        Video length up to 10 minute
+                      </p>
+                    </div>
+                  </div>
                 </div>
               </div>
               <div class="bg-gray-50 px-4 py-3 text-right sm:px-6">
