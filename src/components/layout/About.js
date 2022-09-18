@@ -35,7 +35,7 @@ const About = () => {
           <figure className="card md:flex bg-yellow-100 rounded-xl p-8 md:p-0 dark:bg-yellow-800">
             <img
               className="w-24 h-24 rounded-full mx-auto aspect-square md:ml-3"
-              src="https://media.istockphoto.com/photos/teacher-and-schoolgirl-exchanging-highfive-in-classroom-picture-id1354472037?b=1&k=20&m=1354472037&s=170667a&w=0&h=VgJH7co38cTobl2TJz25qomcAWMqB1VifmgtVDIbuF8="
+              src="https://ansmail.com/wp-content/uploads/2021/10/cho-thue-nhac-cu-dan-toc-1-e1633766270773.jpg"
               alt=""
             />
             <div className="pt-6 md:p-8 text-center md:text-left space-y-4">
@@ -56,7 +56,7 @@ const About = () => {
           <figure className="card md:flex bg-yellow-100 rounded-xl p-8 md:p-0 dark:bg-yellow-800">
             <img
               className="w-24 h-24 rounded-full mx-auto aspect-square md:ml-3"
-              src="https://media.istockphoto.com/photos/piano-interior-picture-id1288269708?b=1&k=20&m=1288269708&s=170667a&w=0&h=OtfH-AcA2FxR5yUrWA6O7yc1QpuEPxNaZ_M530kMkAs="
+              src="https://file1.dangcongsan.vn/DATA/0/2016/02/ca_tru_clb_thanglong_radiovietnam-11_33_40_059.jpg"
               alt=""
             />
             <div className="pt-6 md:p-8 text-center md:text-left space-y-4">
@@ -77,7 +77,7 @@ const About = () => {
           <figure className="card md:flex bg-yellow-100 rounded-xl p-8 md:p-0 dark:bg-yellow-800">
             <img
               className="w-24 h-24 rounded-full mx-auto aspect-square md:ml-3"
-              src="https://media.istockphoto.com/photos/piano-interior-picture-id1288269708?b=1&k=20&m=1288269708&s=170667a&w=0&h=OtfH-AcA2FxR5yUrWA6O7yc1QpuEPxNaZ_M530kMkAs="
+              src="https://daihoc.fpt.edu.vn/wp-content/uploads/2022/04/dai-hoc-fpt-32.jpeg"
               alt=""
             />
             <div className="pt-6 md:p-8 text-center md:text-left space-y-4">
@@ -98,7 +98,7 @@ const About = () => {
           <figure className="card md:flex bg-yellow-100 rounded-xl p-8 md:p-0 dark:bg-yellow-800">
             <img
               className="w-24 h-24 rounded-full mx-auto aspect-square md:ml-3"
-              src="https://media.istockphoto.com/photos/piano-interior-picture-id1288269708?b=1&k=20&m=1288269708&s=170667a&w=0&h=OtfH-AcA2FxR5yUrWA6O7yc1QpuEPxNaZ_M530kMkAs="
+              src="https://nld.mediacdn.vn/thumb_w/600/2021/1/15/son3904s-1610674265189474871856.jpg"
               alt=""
             />
             <div className="pt-6 md:p-8 text-center md:text-left space-y-4">

@@ -55,7 +55,7 @@ export default function Landing() {
       <div className="lg:absolute lg:inset-y-0 lg:right-0 lg:w-1/2">
         <img
           className="h-56 w-full object-cover sm:h-72 md:h-96 lg:h-full lg:w-full"
-          src="https://media.istockphoto.com/photos/zihter-picture-id1356514382?b=1&k=20&m=1356514382&s=170667a&w=0&h=cw5YoIfQJI8_zm8tPe2wi3MsYjilxM57H8PafKE4Jfk="
+          src="https://nhactruyenthong.vn/wp-content/uploads/2019/08/DAN-TRANH-03.jpg"
           alt=""
         />
       </div>
