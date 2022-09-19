@@ -13,10 +13,13 @@ export default function Landing() {
             preserveAspectRatio="none"
             aria-hidden="true"
           >
-            <polygon points="50,0 100,0 50,100 0,100" className="bg-yellow-100"/>
+            <polygon
+              points="50,0 100,0 50,100 0,100"
+              className="bg-yellow-100"
+            />
           </svg>
 
-          <Navbar/>
+          <Navbar />
 
           <main className="mx-auto mt-10 max-w-7xl px-4 sm:mt-12 sm:px-6 md:mt-16 lg:mt-20 lg:px-8 xl:mt-28">
             <div className="sm:text-center lg:text-left">
@@ -27,8 +30,8 @@ export default function Landing() {
                 </span>
               </h1>
               <p className="mt-3 text-base text-gray-500 sm:mx-auto sm:mt-5 sm:max-w-xl sm:text-lg md:mt-5 md:text-xl lg:mx-0">
-                Với sứ mệnh đưa nhạc cụ truyền thống, nghệ thuật lâu đời từ ngàn xưa, đến gần hơn với
-                khán giả và người chơi nhạc thời hiện đại
+                Với sứ mệnh đưa nhạc cụ truyền thống, nghệ thuật lâu đời từ ngàn
+                xưa, đến gần hơn với khán giả và người chơi nhạc thời hiện đại
               </p>
               <div className="mt-5 sm:mt-8 sm:flex sm:justify-center lg:justify-start">
                 <div className="rounded-md shadow">
@@ -53,11 +56,17 @@ export default function Landing() {
         </div>
       </div>
       <div className="lg:absolute lg:inset-y-0 lg:right-0 lg:w-1/2">
-        <img
+        {window.innerWidth < 1000 ? (<img
+          className="h-56 w-full object-cover sm:h-72 md:h-96 lg:h-full lg:w-full"
+          src="https://media.istockphoto.com/photos/piano-interior-picture-id1288269708?b=1&k=20&m=1288269708&s=170667a&w=0&h=OtfH-AcA2FxR5yUrWA6O7yc1QpuEPxNaZ_M530kMkAs="
+          alt=""
+        />):(
+          <img
           className="h-56 w-full object-cover sm:h-72 md:h-96 lg:h-full lg:w-full"
           src="https://nhactruyenthong.vn/wp-content/uploads/2019/08/DAN-TRANH-03.jpg"
           alt=""
         />
+        )}
       </div>
     </div>
   );
