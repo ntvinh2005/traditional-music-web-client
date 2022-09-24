@@ -4,7 +4,11 @@ import { CourseContext } from "../../contexts/CourseContext";
 import { AuthContext } from "../../contexts/AuthContext";
 import { useParams } from "react-router-dom";
 import { Link, Navigate } from "react-router-dom";
+
 import Navbar from "../layout/Navbar";
+import Footer from "../layout/Footer"
+
+import CourseHeader from "./CourseHeader";
 
 const Course = () => {
   const { courseId } = useParams();
@@ -35,6 +39,11 @@ const Course = () => {
     body = (
       <>
         <div className="overflow-hidden bg-white shadow sm:rounded-lg">
+          <CourseHeader
+            name={courses[0] !== undefined && courses[0].title}
+            description={courses[0] !== undefined && courses[0].description}
+            imgUrl={courses[0] !== undefined && courses[0].imgUrl}
+          />
           <div className="px-4 py-5 sm:px-6">
             <h3 className="text-lg font-medium leading-6 text-gray-900">
               {courses[0] !== undefined && courses[0].title}
@@ -43,6 +52,7 @@ const Course = () => {
               Các bài học của khóa học được hiển thị dưới đây.
             </p>
           </div>
+          <div className="p-8 rounded-lg">
           {posts.map((post, index) => (
             <div className="border-t border-gray-200" key={post._id}>
               <dl className="mb-0">
@@ -72,8 +82,9 @@ const Course = () => {
               </dl>
             </div>
           ))}
+          </div>
         </div>
-        <div className="shadow place-self-center m-5 rounded-full">
+        <div className="place-self-center m-5">
           <Link
             to={"/course/createLessons/" + courseId}
             className="items-center justify-center rounded-full border border-transparent bg-yellow-600 px-8 py-3 text-base font-medium text-white hover:bg-yellow-700 md:py-4 md:px-10 md:text-lg hover:text-white"
@@ -91,6 +102,7 @@ const Course = () => {
       <br />
       <br />
       {body}
+      <Footer/>
     </>
   );
 };

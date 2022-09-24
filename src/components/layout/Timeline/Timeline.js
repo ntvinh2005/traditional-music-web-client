@@ -21,7 +21,7 @@ const Timeline = () => {
       date: "Tháng 9/2017",
       category: {
         tag: "Sắp tới",
-        color: "#018f69",
+        color: "#eab308",
       },
       link: {
         url: "https://medium.com/@popflorin1705/javascript-coding-challenge-1-6d9c712963d2",
@@ -33,7 +33,7 @@ const Timeline = () => {
         date: "Tháng 10/2017",
         category: {
           tag: "Sắp tới",
-          color: "#018f69",
+          color: "#eab308",
         },
         link: {
           url: "https://medium.com/@popflorin1705/javascript-coding-challenge-1-6d9c712963d2",
@@ -45,7 +45,7 @@ const Timeline = () => {
         date: "Tháng 10/2017",
         category: {
           tag: "Sắp tới",
-          color: "#018f69",
+          color: "#eab308",
         },
         link: {
           url: "https://medium.com/@popflorin1705/javascript-coding-challenge-1-6d9c712963d2",
@@ -57,7 +57,7 @@ const Timeline = () => {
         date: "Tháng 10/2017",
         category: {
           tag: "Sắp tới",
-          color: "#018f69",
+          color: "#eab308",
         },
         link: {
           url: "https://medium.com/@popflorin1705/javascript-coding-challenge-1-6d9c712963d2",

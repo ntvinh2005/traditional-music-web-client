@@ -4,6 +4,7 @@ import { useParams } from "react-router-dom";
 import { PostContext } from "../../contexts/PostContext";
 import "./Post.css";
 import Navbar from "../layout/Navbar";
+import Footer from "../layout/Footer";
 
 const Post = () => {
   const { postId } = useParams();
@@ -42,6 +43,7 @@ const Post = () => {
         </div>
         </div>
       </div>
+      <Footer/>
     </>
   );
 };

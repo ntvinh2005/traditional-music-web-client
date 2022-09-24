@@ -22,7 +22,6 @@ const Navbar = () => {
   const navigation = [
     { name: "Trang chủ", href: "/home" },
     { name: "Tạo khóa học mới", href: "/studio" },
-    { name: "Thành tích", href: "/dashboard" },
   ];
 
   const openDropdown = () => {

@@ -106,10 +106,10 @@ const CreateCourse = () => {
                       Ảnh
                     </label>
                     <div className="mt-1 flex items-center">
-                      <span className="inline-block h-12 w-12 overflow-hidden rounded-full bg-gray-100">
+                      <span className="inline-block h-12 w-12 overflow-hidden rounded-full bg-yellow-100">
                         {imgUrl === "" ? (
                         <svg
-                          className="h-full w-full text-gray-300"
+                          className="h-full w-full text-yellow-900"
                           fill="currentColor"
                           viewBox="0 0 24 24"
                         >
@@ -120,12 +120,6 @@ const CreateCourse = () => {
                         )}
                         
                       </span>
-                      <button
-                        type="button"
-                        className="ml-5 rounded-md border border-gray-300 bg-white py-2 px-3 text-sm font-medium leading-4 text-gray-700 shadow-sm hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"
-                      >
-                        Change
-                      </button>
                     </div>
                   </div>
 
@@ -136,7 +130,7 @@ const CreateCourse = () => {
                     <div className="mt-1 flex justify-center rounded-md border-2 border-dashed border-gray-300 px-6 pt-5 pb-6">
                       <div className="space-y-1 text-center">
                         <svg
-                          className="mx-auto h-12 w-12 text-gray-400"
+                          className="mx-auto h-12 w-12 text-yellow-400"
                           stroke="currentColor"
                           fill="none"
                           viewBox="0 0 48 48"
@@ -173,7 +167,7 @@ const CreateCourse = () => {
                   </div>
                 </div>
 
-                <div class="bg-gray-50 px-4 py-3 text-right sm:px-6">
+                <div class="bg-yellow-50 px-4 py-3 text-right sm:px-6">
                   <button
                     type="submit"
                     onClick={handleSubmit}

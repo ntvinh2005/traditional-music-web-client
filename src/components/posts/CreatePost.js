@@ -4,7 +4,9 @@ import { AuthContext } from "../../contexts/AuthContext";
 import { CourseContext } from "../../contexts/CourseContext";
 import { useParams } from "react-router-dom";
 import Markdown from "markdown-to-jsx";
+
 import Navbar from "../layout/Navbar";
+import Footer from "../layout/Footer"
 
 import { storage } from "../../firebase";
 import ReactPlayer from "react-player";
@@ -212,7 +214,7 @@ const CreatePost = () => {
                   </div>
                 </div>
               </div>
-              <div class="bg-gray-50 px-4 py-3 text-right sm:px-6">
+              <div class="bg-yellow-50 px-4 py-3 text-right sm:px-6">
                 <button
                   type="submit"
                   onClick={handleSubmit}
@@ -225,6 +227,7 @@ const CreatePost = () => {
           </form>
         </div>
       </div>
+      <Footer/>
     </div>
   );
 };
