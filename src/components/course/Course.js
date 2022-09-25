@@ -13,7 +13,7 @@ import CourseHeader from "./CourseHeader";
 const Course = () => {
   const { courseId } = useParams();
   const {
-    authState: { authLoading, isAuthenticated },
+    authState: { authLoading, isAuthenticated, user },
     loadUser,
   } = useContext(AuthContext);
   const {
@@ -85,12 +85,13 @@ const Course = () => {
           </div>
         </div>
         <div className="place-self-center m-5">
+          {courses[0] !== undefined && user._id === courses[0].user ?
           <Link
             to={"/course/createLessons/" + courseId}
             className="items-center justify-center rounded-full border border-transparent bg-yellow-600 px-8 py-3 text-base font-medium text-white hover:bg-yellow-700 md:py-4 md:px-10 md:text-lg hover:text-white"
           >
             Tạo bài học mới
-          </Link>
+          </Link> : null}
         </div>
       </>
     );

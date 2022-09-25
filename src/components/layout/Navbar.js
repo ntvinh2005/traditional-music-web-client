@@ -19,10 +19,14 @@ const Navbar = () => {
 
   const [dropdown, setDropdown] = useState(false);
 
+  const adminList = ['632f106e8a43dd3e650f947b']
+
   const navigation = [
     { name: "Trang chủ", href: "/home" },
     { name: "Tạo khóa học mới", href: "/studio" },
   ];
+
+  if (user !== null && adminList.includes(user._id)) navigation.push({name: "Quản lý", href: "/admin/" + user._id})
 
   const openDropdown = () => {
     if (dropdown === false) setDropdown(true);

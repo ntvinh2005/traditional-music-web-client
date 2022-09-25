@@ -9,6 +9,8 @@ import Test from "./components/layout/Test"
 import CreatePost from "./components/posts/CreatePost";
 import Post from "./components/posts/Post"
 
+import Admin from "./admin/Admin"
+
 import Auth from "./components/auth/Auth"
 import PrivateRoute from "./components/auth/PrivateRoute";
 
@@ -67,6 +69,11 @@ function App() {
                   exact 
                   path="/post/:postId"
                   element={<Post/>}
+                />
+                <Route
+                  exact 
+                  path="/admin/:adminId"
+                  element={<Admin/>}
                 />
                 <Route path="/login" element={<Auth authRoute = {"login"}></Auth>} />
                 <Route path="/register" element={<Auth authRoute = {"register"}></Auth>} />
