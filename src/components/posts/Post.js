@@ -1,4 +1,4 @@
-import React, { useEffect, useContext } from "react";
+import React, { useEffect, useContext, useState } from "react";
 import Markdown from "markdown-to-jsx";
 import { useParams } from "react-router-dom";
 import { PostContext } from "../../contexts/PostContext";
@@ -8,12 +8,13 @@ import Footer from "../layout/Footer";
 
 const Post = () => {
   const { postId } = useParams();
+  const [posts, setPosts] = useState([])
+
   const {
-    getPost,
-    postState: { posts },
+    getPost
   } = useContext(PostContext);
   useEffect(() => {
-    getPost(postId);
+     getPost(postId).then((posts) => setPosts(posts))
   }, []);
 
   return (

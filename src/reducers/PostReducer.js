@@ -4,8 +4,8 @@ const PostReducer = (state, action) => {
     switch(type) {
         case 'POST_LOADED_SUCCESS':
             return {
-                ...state,
-                posts: payload, 
+                ...state, 
+                posts: payload
             }
         case 'ADD_POST':
             return {
