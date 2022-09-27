@@ -2,7 +2,7 @@ import React, { useState, useContext, useEffect } from "react";
 import { PostContext } from "../../contexts/PostContext";
 import { AuthContext } from "../../contexts/AuthContext";
 import { CourseContext } from "../../contexts/CourseContext";
-import { useParams } from "react-router-dom";
+import { useParams, useNavigate } from "react-router-dom";
 import Markdown from "markdown-to-jsx";
 
 import Navbar from "../layout/Navbar";
@@ -13,6 +13,8 @@ import ReactPlayer from "react-player";
 
 const CreatePost = () => {
   const { courseId } = useParams();
+  const navigate = useNavigate();
+
 
   const {
     authState: { user },
@@ -52,8 +54,8 @@ const CreatePost = () => {
       content: html,
       videoUrl: videoUrl,
     };
-    await createPost(courseId, newPost);
-    console.log(header, html);
+    const newPostData = await createPost(courseId, newPost);
+    if (newPostData.success) navigate("/course/"+courseId)
   };
 
   return (
@@ -84,7 +86,7 @@ const CreatePost = () => {
           </div>
         </div>
         <div class="mt-5 md:col-span-2 md:mt-0">
-          <form onSubmit = {handleSubmit}>
+          <div>
             <div class="shadow sm:overflow-hidden sm:rounded-md">
               <div class="space-y-6 bg-white px-4 py-5 sm:p-6">
                 <div class="grid grid-cols-3 gap-6">
@@ -217,13 +219,14 @@ const CreatePost = () => {
               <div class="bg-yellow-50 px-4 py-3 text-right sm:px-6">
                 <button
                   type="submit"
-                  class="inline-flex justify-center rounded-md border border-transparent bg-yellow-600 py-2 px-4 text-sm font-medium text-white shadow-sm hover:bg-yellow-700 focus:outline-none focus:ring-2 focus:ring-yellow-500 focus:ring-offset-2"
+                  className="inline-flex justify-center rounded-md border border-transparent bg-yellow-600 py-2 px-4 text-sm font-medium text-white shadow-sm hover:bg-yellow-700 focus:outline-none focus:ring-2 focus:ring-yellow-500 focus:ring-offset-2"
+                  onClick = {handleSubmit}
                 >
                   Save
                 </button>
               </div>
             </div>
-          </form>
+          </div>
         </div>
       </div>
       <Footer/>
