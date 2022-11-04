@@ -23,7 +23,6 @@ const Courses = ({ courses }) => {
               </h3>
               <p className="mt-1 text-sm text-yellow-500">{course.description}</p>
             </div>
-            <p className="text-sm font-medium text-gray-900">{String(course.createdAt.split("T")[0])}</p>
           </div>
         </div>
         ))}
