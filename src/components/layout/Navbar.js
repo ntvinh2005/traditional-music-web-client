@@ -24,6 +24,7 @@ const Navbar = () => {
   const navigation = [
     { name: "Trang chủ", href: "/home" },
     { name: "Tạo khóa học mới", href: "/studio" },
+    { name: "Về chúng tôi", href: "/about" },
   ];
 
   if (user !== null && adminList.includes(user._id)) navigation.push({name: "Quản lý", href: "/admin/" + user._id})
@@ -58,7 +59,7 @@ const Navbar = () => {
               </div>
             </div>
           </div>
-          <div className="hidden md:ml-10 md:block md:space-x-8 md:pr-4">
+          <div className="hidden md:ml-10 md:block md:space-x-4 md:pr-2">
             {navigation.map((item) => (
               <Link
                 key={item.name}

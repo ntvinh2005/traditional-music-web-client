@@ -35,7 +35,7 @@ const About = () => {
           <figure className="card md:flex bg-yellow-100 rounded-xl p-8 md:p-0 dark:bg-yellow-800">
             <img
               className="w-24 h-24 rounded-full mx-auto aspect-square md:ml-3"
-              src="https://ansmail.com/wp-content/uploads/2021/10/cho-thue-nhac-cu-dan-toc-1-e1633766270773.jpg"
+              src="https://www.google.com/search?q=gi%C3%A1o+d%E1%BB%A5c+%C3%A2m+nh%E1%BA%A1c+truy%E1%BB%81n+th%E1%BB%91ng&rlz=1C1GGRV_enVN924VN924&sxsrf=ALiCzsbEVhKobnPcTE9g5Bvu_u-0zzZEyQ:1667621259823&source=lnms&tbm=isch&sa=X&ved=2ahUKEwja5r6mlZb7AhWkwjgGHYLgAhIQ_AUoAXoECAIQAw&biw=1280&bih=577&dpr=1.5#imgrc=6lVlR0vTI0fmhM"
               alt=""
             />
             <div className="pt-6 md:p-8 text-center md:text-left space-y-4">
