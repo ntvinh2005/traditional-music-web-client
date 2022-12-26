@@ -6,7 +6,7 @@ const Timeline = () => {
   const timelineData = [
     {
       text: "Website cung cấp thông tin và khoá học cơ bản về các loại nhạc cụ truyền thống",
-      date: "Tháng 09/2017",
+      date: "Tháng 09/2022",
       category: {
         tag: "Hoàn thành",
         color: "#018f69",
@@ -18,9 +18,9 @@ const Timeline = () => {
     },
     {
       text: "Chuyến đi thực tế tìm hiểu thực trạng nhạc cụ truyền thống trong cuộc sống",
-      date: "Tháng 9/2017",
+      date: "Tháng 9/2022",
       category: {
-        tag: "Sắp tới",
+        tag: "Hoàn thành",
         color: "#eab308",
       },
       link: {
@@ -30,9 +30,9 @@ const Timeline = () => {
     },
     {
         text: "Dạy về nhạc cụ truyền thống cho các em học sinh",
-        date: "Tháng 10/2017",
+        date: "Tháng 10/2022",
         category: {
-          tag: "Sắp tới",
+          tag: "Hoàn thành",
           color: "#eab308",
         },
         link: {
@@ -42,9 +42,9 @@ const Timeline = () => {
       },
       {
         text: "Luyện tập cho buổi biểu diễn nhạc cụ truyền thống",
-        date: "Tháng 10/2017",
+        date: "Tháng 10/2022",
         category: {
-          tag: "Sắp tới",
+          tag: "Hoàn thành",
           color: "#eab308",
         },
         link: {
@@ -54,9 +54,9 @@ const Timeline = () => {
       },
       {
         text: "Biểu diễn trong ban nhạc nhạc cụ truyền thống",
-        date: "Tháng 10/2017",
+        date: "Tháng 10/2022",
         category: {
-          tag: "Sắp tới",
+          tag: "Hoàn thành",
           color: "#eab308",
         },
         link: {
